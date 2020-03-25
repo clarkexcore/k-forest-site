@@ -18,7 +18,7 @@ const Navigation = () => {
                             <li className="nav-desktop"><Link to="/music" activeClassName="active-link">Music</Link></li>
                             <li className="nav-desktop"><Link to="/video" activeClassName="active-link">Video</Link></li>
                             <li className="nav-desktop"><a href="https://kforest.myshopify.com/">Shop</a></li>
-                            <li className="nav-desktop"><Link to="/contact" activeClassName="active-link">Contact</Link></li>
+                            <li className="nav-desktop mr-0"><Link to="/contact" activeClassName="active-link">Contact</Link></li>
                             <li className="nav-mobile" onClick={openNavClick}><i className="fas fa-bars"></i></li>
                         </ul>
                     </div>
