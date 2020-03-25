@@ -1,0 +1,30 @@
+body{
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #043c2d;
+    color: #fff;
+}
+
+header{
+    min-height: 75vh;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #04213c;
+    color: #fff;
+    .bottom-header{
+        align-self: flex-end;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        p{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.gradient-bar{
+    height: 20px;
+    width: 100%;
+    background-image: linear-gradient(to right, #811f24, #ff190c, #fe5009, #ffb519, #ae7527);
+}
