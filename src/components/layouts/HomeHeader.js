@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 //Image Assets
 import Logo from '../../imgs/logo.png';
@@ -10,7 +10,7 @@ const HomeHeader = () => {
             <div className="logo-container">
                 <img src={Logo} alt="K. Forest Logo" />
             </div>
-            <div class="bottom-header">
+            <div className="bottom-header">
                 <p>K. Forest</p>
             </div>
         </header>

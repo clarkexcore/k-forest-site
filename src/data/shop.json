@@ -1,0 +1,11 @@
+[
+    {
+        "name" : "Whatever",
+        "link" : "https://test-link.com",
+        "image" : "logo.png" 
+    },
+    {
+        "name" : "Whatever2",
+        "link" : "https://test-link.com" 
+    }
+]
