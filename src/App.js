@@ -5,12 +5,14 @@ import './styles.scss';
 
 //Component Pages
 import Homepage from './components/Homepage/Homepage';
+import Music from './components/Music/Music';
 
 function App() {
   return (
     <div className="App">
         <Router>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/music" component={Music} />
         </Router>
     </div>
   );

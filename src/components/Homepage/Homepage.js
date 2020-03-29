@@ -25,7 +25,7 @@ const Homepage = () => {
             <HomeHeader />
             <div className="gradient-bar"></div>
             <Navigation />
-            {/* {shopData} */}
+            {shopData}
         </Fragment>
     );
 }
