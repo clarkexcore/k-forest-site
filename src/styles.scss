@@ -4,6 +4,9 @@ body{
     background-color: #043c2d;
     color: #fff;
 }
+img{
+    width: 100%;
+}
 .gradient-bar{
     height: 20px;
     width: 100%;
@@ -14,6 +17,55 @@ body{
     max-width: 1080px;
     padding: 0 15px;
 }
+.btns-container{
+    display: flex;
+    justify-content: center;
+    .btn{
+        color: #fff;
+        border: 2px solid #fff;
+        text-decoration: none;
+        padding: 5px 25px;
+        margin-right: 25px;
+        transition: all 0.2s;
+        width: 130px;
+        text-align: center;
+        &:hover{
+            color: #043c2d;
+            background-color: #fff;
+        }
+    }
+    .btn-share{
+        margin-right: 0;
+        position: relative;
+    }
+}
+
+.share-link{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: #fff;
+    color: #043c2d;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+.share-link-right{
+    right: 0;
+}
+.share-link-left{
+    left: 0;
+}
+.share-link:hover{
+    background-color: #043c2d;
+    color: #fff;
+}
+.btn-share:hover .share-link{
+    display: flex;
+}
+
 
 // Header Styles
 header{
@@ -66,8 +118,15 @@ nav{
             }
         }
         a{
-            color: #fff;
+            color: rgba(255,255,255, 0.66);
             text-decoration: none;
+            transition: all 0.4s;
+            &:hover{
+                color: rgba(255,255,255, 1);
+            }
+        }
+        .active-link{
+            color: rgba(255,255,255,1);
         }
         .mr-0{
             margin-right: 0;
@@ -113,8 +172,31 @@ nav.mobile-menu{
     }
 }
 
+// Main Styles
+main{
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    .feed-container{
+        width: 100%;
+        max-width: 800px;
+        padding: 0 15px;
+    }
+}
+//Shop Items
+.shop-item-container{
+    margin-bottom: 100px;
+    img{
+        display: block;
+        margin-bottom: 25px;
+    }
+}
 //YT Embeds
+.video-container{
+    margin-bottom: 100px;
+}
 .yt-embed{
     width: 100%;
-    max-width: 640px;
+    max-width: 800px;
+    height: 400px;
 }

@@ -11,9 +11,11 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-facebook-share-link": "^1.0.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-spotify-api": "^2.6.0",
+    "react-twitter-share-link": "^1.2.1",
     "react-youtube": "^7.9.0"
   },
   "scripts": {

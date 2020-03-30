@@ -6,6 +6,7 @@ import './styles.scss';
 //Component Pages
 import Homepage from './components/Homepage/Homepage';
 import Music from './components/Music/Music';
+import Video from './components/Video/Video';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Router>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/music" component={Music} />
+            <Route exact path="/video" component={Video} />
         </Router>
     </div>
   );

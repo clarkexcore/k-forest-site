@@ -1,11 +1,17 @@
 [
     {
-        "name" : "Whatever",
-        "link" : "https://test-link.com",
-        "image" : "logo.png" 
+        "name" : "Shop",
+        "link" : "https://kforest.myshopify.com/",
+        "image" : "merch_01.jpg" 
     },
     {
         "name" : "Whatever2",
-        "link" : "https://test-link.com" 
+        "link" : "https://kforest.myshopify.com/",
+        "image" : "merch_02.jpg" 
+    },
+    {
+        "name" : "Whatever2",
+        "link" : "https://kforest.myshopify.com/",
+        "image" : "merch_03.jpg" 
     }
 ]
