@@ -4,6 +4,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 
 //Components
+import ShareBtns from '../layouts/ShareBtns';
 import AltHeader from '../layouts/AltHeader';
 import Footer from '../layouts/Footer';
 
@@ -45,24 +46,26 @@ const Video = () => {
     const videoPlayer = () => (
         <Fragment>
             {!videoLoading ? 
-                videos.map(video => (
-                    <div className="video-container" key={video.etag}>
-                        <YouTube
-                            videoId={video.id.videoId}
-                            className="yt-embed"
-                            opts={{
-                                playerVars: {
-                                autoplay: 0
-                                }
-                            }}
-                        />
-                    </div>
-                ))
-            :
-                <div className="loading-container">
-                    <i className="fas fa-spinner fa-pulse"></i>
-                </div>
-            }
+                videos.map(video => {
+                    const link = `https://www.youtube.com/watch?v=${video.id.videoId}`;
+                    return(
+                        <div className="video-container" key={video.id.videoId}>
+                            <YouTube
+                                videoId={video.id.videoId}
+                                className="yt-embed"
+                                opts={{
+                                    playerVars: {
+                                    autoplay: 0
+                                    }
+                                }}
+                            />
+                            <div className="btns-container">
+                                <ShareBtns Link={link} />
+                            </div>
+                        </div>
+                    );
+                })
+            : null }
         </Fragment>
     );
 

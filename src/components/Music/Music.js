@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import MusicData from '../../data/music.json';
 
 //Components
+import ShareBtns from '../layouts/ShareBtns';
 import AltHeader from '../layouts/AltHeader';
 import Footer from '../layouts/Footer';
 
@@ -27,7 +28,10 @@ const Music = () => {
                     }
                     <h3 className="text-center">{item.title}</h3>
                     <div className="spotify-embed-container">
-                        <iframe className="spotify-embed" src={item.embed} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe className="spotify-embed" src={item.embed} title={item.title} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                    <div className="btns-container">
+                        <ShareBtns Link={item.share_link} />
                     </div>
                 </div>
             </Fragment>
