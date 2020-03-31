@@ -3,7 +3,9 @@ import React, { Fragment, useState, useEffect } from 'react';
 //Packages
 import YouTube from 'react-youtube';
 
+//Components
 import AltHeader from '../layouts/AltHeader';
+import Footer from '../layouts/Footer';
 
 const Video = () => {
 
@@ -56,7 +58,11 @@ const Video = () => {
                         />
                     </div>
                 ))
-            : null}
+            :
+                <div className="loading-container">
+                    <i className="fas fa-spinner fa-pulse"></i>
+                </div>
+            }
         </Fragment>
     );
 
@@ -68,6 +74,7 @@ const Video = () => {
                     {videoPlayer()}
                 </div>
             </main>
+            <Footer />
         </Fragment>
     )
 }

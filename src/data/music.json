@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Memory Springs",
+        "embed": "https://open.spotify.com/embed/album/1u8cMnEdxcystiFOb8DRWN",
+        "front_img": "memory_front.jpg",
+        "back_img": "memory_back.jpg",
+        "share_link": "https://open.spotify.com/album/1u8cMnEdxcystiFOb8DRWN?si=C4h_eHEGToO-JqdZesQBmg"
+    },
+    {
+        "title": "Forest Fire",
+        "embed": "https://open.spotify.com/embed/album/3F7LoTY3Eh7WvO2y8wO7Yd",
+        "front_img": "forest_front.jpg",
+        "back_img": null,
+        "share_link": "https://open.spotify.com/album/3F7LoTY3Eh7WvO2y8wO7Yd?si=C4h_eHEGToO-JqdZesQBmg"
+    },
+    {
+        "title": "Forest Fire II",
+        "embed": "https://open.spotify.com/embed/album/15Ednpa98p7aUwc4iM3eCx",
+        "front_img": "forest2_front.jpg",
+        "back_img": "forest2_back.jpg",
+        "share_link": "https://open.spotify.com/album/15Ednpa98p7aUwc4iM3eCx?si=C4h_eHEGToO-JqdZesQBmg"
+    },
+    {
+        "title": "When Its All Said and Done",
+        "embed": "https://open.spotify.com/embed/album/4VueGUrR1NwsQaS1pwm8Zr",
+        "front_img": "wiasad_front.jpg",
+        "back_img": "wiasad_back.jpg",
+        "share_link": "https://open.spotify.com/album/4VueGUrR1NwsQaS1pwm8Zr?si=C4h_eHEGToO-JqdZesQBmg"
+    },
+    {
+        "title": "Eyes of Taiga",
+        "embed": "https://open.spotify.com/embed/album/76jEpmVvOpXMzCwzijyEnz",
+        "front_img": "eot_front.jpg",
+        "back_img": "eot_back.jpg",
+        "share_link": "https://open.spotify.com/album/76jEpmVvOpXMzCwzijyEnz?si=C4h_eHEGToO-JqdZesQBmg"
+    }
+]
