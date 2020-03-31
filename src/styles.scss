@@ -227,7 +227,14 @@ main{
     .double-img-container{
         display: flex;
         img{
+            align-self: center;
             width: 50%;
+        }
+        @media (max-width: 500px){
+            flex-direction: column;
+            img{
+                width: 100%;
+            }
         }
     }
     h3{
@@ -235,6 +242,7 @@ main{
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 2px;
+        text-align: center;
     }
     .spotify-embed{
         max-width: 100%;
