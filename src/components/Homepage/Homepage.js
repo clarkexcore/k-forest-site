@@ -1,5 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
+//Data
+import ShopData from '../../data/shop';
+import MusicData from '../../data/music';
+
 //Packages
 import YouTube from 'react-youtube';
 
@@ -8,10 +12,9 @@ import HomeHeader from '../layouts/HomeHeader';
 import Navigation from '../layouts/Navigation';
 import ShareBtns from '../layouts/ShareBtns';
 import Footer from '../layouts/Footer';
+import MusicTile from '../Music/MusicTile';
+import ShopTile from '../layouts/ShopTile';
 
-//Data
-import ShopData from '../../data/shop.json';
-import MusicData from '../../data/music.json';
 
 const Homepage = () => {
 
@@ -54,15 +57,7 @@ const Homepage = () => {
     const getShopItem = (num) => {
         return(
             <Fragment>
-                { ShopData ?
-                    <div className="shop-item-container">
-                        <img src={require(`../../imgs/${ShopData[num].image}`)} alt="Shop Item"/>
-                        <div className="btns-container">
-                            <a href={ShopData[num].link} target="_blank" rel="noopener noreferrer" className="btn">Shop Now</a>
-                            <ShareBtns Link={ShopData[num].link} />
-                        </div>
-                    </div>
-                : null}
+                <ShopTile shop={ShopData[num]} />
             </Fragment>
         );
     }
@@ -71,22 +66,20 @@ const Homepage = () => {
     const videoPlayer = (num) => {
         return(
             <Fragment>
-                {!videoLoading ?   
-                    <div className="video-container" key={videos[num].id.videoId}>
-                        <YouTube
-                            videoId={videos[num].id.videoId}
-                            className="yt-embed"
-                            opts={{
-                                playerVars: {
-                                autoplay: 0
-                                }
-                            }}
-                        />
-                        <div className="btns-container">
-                            <ShareBtns Link={`https://www.youtube.com/watch?v=${videos[num].id.videoId}`} />
-                        </div>
+                <div className="video-container" key={videos[num].id.videoId}>
+                    <YouTube
+                        videoId={videos[num].id.videoId}
+                        className="yt-embed"
+                        opts={{
+                            playerVars: {
+                            autoplay: 0
+                            }
+                        }}
+                    />
+                    <div className="btns-container">
+                        <ShareBtns Link={`https://www.youtube.com/watch?v=${videos[num].id.videoId}`} />
                     </div>
-                : null }
+                </div>
             </Fragment>
         )
     };
@@ -95,27 +88,7 @@ const Homepage = () => {
     const getMusicItem = (num) => {
         return (
             <Fragment>
-                {MusicData ?
-                    <div className="music-container">
-                        {MusicData[num].back_img ?
-                            <div className="double-img-container">
-                                <img src={require(`../../imgs/${MusicData[num].front_img}`)} alt="Shop Item"/>
-                                <img src={require(`../../imgs/${MusicData[num].back_img}`)} alt="Shop Item"/>
-                            </div>
-                        :
-                            <div className="single-img-container">
-                                <img src={require(`../../imgs/${MusicData[num].front_img}`)} alt="Shop Item"/>
-                            </div>
-                        }
-                        <h3 className="text-center">{MusicData[num].title}</h3>
-                        <div className="spotify-embed-container">
-                            <iframe className="spotify-embed" src={MusicData[num].embed} title={MusicData[num].title} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                        </div>
-                        <div className="btns-container">
-                            <ShareBtns Link={MusicData[num].share_link} />
-                        </div>
-                    </div>
-                : null}
+                <MusicTile music={MusicData[num]} />
             </Fragment>
         );
     }
@@ -127,19 +100,45 @@ const Homepage = () => {
             <Navigation />
             <main>
                 <div className="feed-container">
-                    {getMusicItem(0)}
-                    {getMusicItem(1)}
-                    {getShopItem(0)}
-                    {videoPlayer(0)}
-                    {videoPlayer(1)}
-                    {getMusicItem(2)}
-                    {getMusicItem(3)}
-                    {videoPlayer(2)}
-                    {getMusicItem(4)}
-                    {videoPlayer(3)}
-                    {videoPlayer(4)}
-                    {getShopItem(1)}
-                    {getShopItem(2)}
+                    {MusicData ?
+                        getMusicItem(0)
+                    : null }
+                    {MusicData ?
+                        getMusicItem(1)
+                    : null }
+                    { ShopData ?
+                        getShopItem(0)
+                    : null}
+                    {!videoLoading ? 
+                        videoPlayer(0)
+                    : null }
+                    {!videoLoading ? 
+                        videoPlayer(1)
+                    : null }
+                    {MusicData ?
+                        getMusicItem(2)
+                    : null }
+                    {MusicData ?
+                        getMusicItem(3)
+                    : null }
+                    {!videoLoading ? 
+                        videoPlayer(2)
+                    : null }
+                    {MusicData ?
+                        getMusicItem(4)
+                    : null }
+                    {!videoLoading ? 
+                        videoPlayer(3)
+                    : null }
+                    {!videoLoading ? 
+                        videoPlayer(4)
+                    : null }
+                    { ShopData ?
+                        getShopItem(1)
+                    : null}
+                    { ShopData ?
+                        getShopItem(2)
+                    : null}
                 </div>
             </main>
             <Footer />
