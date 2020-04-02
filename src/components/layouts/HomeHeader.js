@@ -6,12 +6,10 @@ import Logo from '../../imgs/logo.png';
 const HomeHeader = () => {
     return(
         <header>
-            <div></div>
-            <div className="logo-container">
+            <div className="feed-container header-container">
+                <h1>K. Forest</h1>
+                <div className="gradient-bar gradient-bar-small"></div>
                 <img src={Logo} alt="K. Forest Logo" />
-            </div>
-            <div className="bottom-header">
-                <p>K. Forest</p>
             </div>
         </header>
     );

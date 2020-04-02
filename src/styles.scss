@@ -1,7 +1,7 @@
 // General Styles
 body{
     font-family: 'Helvetica Neue', sans-serif;
-    background-color: #043c2d;
+    background-color: #04213c;
     color: #fff;
 }
 img{
@@ -11,6 +11,14 @@ img{
     height: 20px;
     width: 100%;
     background-image: linear-gradient(to right, #811f24, #ff190c, #fe5009, #ffb519, #ae7527);
+}
+.gradient-bar-small{
+    height: 8px;
+    width: 250px;
+    margin: 25px 0;
+}
+.gradient-bar-contact{
+    height: 8px;
 }
 .container{
     width: 100%;
@@ -72,24 +80,38 @@ img{
 
 // Header Styles
 header{
-    min-height: 75vh;
+    min-height: calc(100vh - 20px);
     padding: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #04213c;
+    background-image: url('./imgs/header-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top right;
     color: #fff;
-    .bottom-header{
-        align-self: flex-end;
+    .header-container{
+        width: 100%;
+        max-width: 800px;
+    }
+    h1{
+        font-weight: 300;
+        font-size: 3.05rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        p{
-            margin-bottom: 0;
-        }
     }
     img{
         width: 100%;
+        max-width: 100px;
+        display: block;
+    }
+    @media (max-width: 768px){
+        background-position: top left;
+    }
+    @media (max-width: 500px){
+        background-attachment: initial;
     }
 }
 
@@ -248,6 +270,52 @@ main{
         max-width: 100%;
         margin-top: 50px;
         margin-bottom: 25px;
+    }
+}
+
+main.contact-header{
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 a{
+        font-weight: 300;
+        font-size: 2.05rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+        text-decoration: none;
+        @media(max-width:500px){
+            font-size: 1.4rem;
+        }
+        @media(max-width: 350px){
+            font-size: 1.1rem;
+        }
+    }
+    .socials-list{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        list-style: none;
+        margin: 20px 0 0;
+        li{
+            margin-right: 15px;
+            &:last-of-type{
+                margin-right: 0;
+            }
+        }
+        a{
+            color: rgba(255,255,255, 0.66);
+            font-size: 30px;
+            transition: all 0.4s;
+            &:hover{
+                color: rgba(255,255,255,1);
+            }
+        }
+    }
+    @media(max-width: 500px){
+        padding: 0 15px;
     }
 }
 

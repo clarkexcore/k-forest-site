@@ -51,76 +51,74 @@ const Homepage = () => {
     //JSX Elements
 
     //Shop JSX
-    const shopData = ShopData.map((item, index) => {
-        if(index < 3){
-            return(
-                <div className="shop-item-container" key={index}>
-                    <img src={require(`../../imgs/${item.image}`)} alt="Shop Item"/>
-                    <div className="btns-container">
-                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="btn">Shop Now</a>
-                        <ShareBtns Link={item.link} />
-                    </div>
-                </div>
-            )
-        } else {
-            return null;
-        }
-    });
-
-    // Video JSX
-    const videoPlayer = () => (
-        <Fragment>
-            {!videoLoading ? 
-                videos.map(video => {
-                    const link = `https://www.youtube.com/watch?v=${video.id.videoId}`;
-                    return(
-                        <div className="video-container" key={video.id.videoId}>
-                            <YouTube
-                                videoId={video.id.videoId}
-                                className="yt-embed"
-                                opts={{
-                                    playerVars: {
-                                    autoplay: 0
-                                    }
-                                }}
-                            />
-                            <div className="btns-container">
-                                <ShareBtns Link={link} />
-                            </div>
-                        </div>
-                    );
-                })
-            : null }
-        </Fragment>
-    );
-
-    // Music JSX
-    const musicData = MusicData.map((item, index) => {
-        console.log(item);
+    const getShopItem = (num) => {
         return(
             <Fragment>
-                <div className="music-container" key={item.title}>
-                    {item.back_img ?
-                        <div className="double-img-container">
-                            <img src={require(`../../imgs/${item.front_img}`)} alt="Shop Item"/>
-                            <img src={require(`../../imgs/${item.back_img}`)} alt="Shop Item"/>
+                { ShopData ?
+                    <div className="shop-item-container">
+                        <img src={require(`../../imgs/${ShopData[num].image}`)} alt="Shop Item"/>
+                        <div className="btns-container">
+                            <a href={ShopData[num].link} target="_blank" rel="noopener noreferrer" className="btn">Shop Now</a>
+                            <ShareBtns Link={ShopData[num].link} />
                         </div>
-                    :
-                        <div className="single-img-container">
-                            <img src={require(`../../imgs/${item.front_img}`)} alt="Shop Item"/>
-                        </div>
-                    }
-                    <h3 className="text-center">{item.title}</h3>
-                    <div className="spotify-embed-container">
-                        <iframe className="spotify-embed" src={item.embed} title={item.title} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     </div>
-                    <div className="btns-container">
-                        <ShareBtns Link={item.share_link} />
-                    </div>
-                </div>
+                : null}
             </Fragment>
         );
-    }) 
+    }
+
+    // Video JSX
+    const videoPlayer = (num) => {
+        return(
+            <Fragment>
+                {!videoLoading ?   
+                    <div className="video-container" key={videos[num].id.videoId}>
+                        <YouTube
+                            videoId={videos[num].id.videoId}
+                            className="yt-embed"
+                            opts={{
+                                playerVars: {
+                                autoplay: 0
+                                }
+                            }}
+                        />
+                        <div className="btns-container">
+                            <ShareBtns Link={`https://www.youtube.com/watch?v=${videos[num].id.videoId}`} />
+                        </div>
+                    </div>
+                : null }
+            </Fragment>
+        )
+    };
+
+    // Music JSX
+    const getMusicItem = (num) => {
+        return (
+            <Fragment>
+                {MusicData ?
+                    <div className="music-container">
+                        {MusicData[num].back_img ?
+                            <div className="double-img-container">
+                                <img src={require(`../../imgs/${MusicData[num].front_img}`)} alt="Shop Item"/>
+                                <img src={require(`../../imgs/${MusicData[num].back_img}`)} alt="Shop Item"/>
+                            </div>
+                        :
+                            <div className="single-img-container">
+                                <img src={require(`../../imgs/${MusicData[num].front_img}`)} alt="Shop Item"/>
+                            </div>
+                        }
+                        <h3 className="text-center">{MusicData[num].title}</h3>
+                        <div className="spotify-embed-container">
+                            <iframe className="spotify-embed" src={MusicData[num].embed} title={MusicData[num].title} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        </div>
+                        <div className="btns-container">
+                            <ShareBtns Link={MusicData[num].share_link} />
+                        </div>
+                    </div>
+                : null}
+            </Fragment>
+        );
+    }
 
     return(
         <Fragment>
@@ -129,9 +127,19 @@ const Homepage = () => {
             <Navigation />
             <main>
                 <div className="feed-container">
-                    {shopData}
-                    {musicData}
-                    {videoPlayer()}
+                    {getMusicItem(0)}
+                    {getMusicItem(1)}
+                    {getShopItem(0)}
+                    {videoPlayer(0)}
+                    {videoPlayer(1)}
+                    {getMusicItem(2)}
+                    {getMusicItem(3)}
+                    {videoPlayer(2)}
+                    {getMusicItem(4)}
+                    {videoPlayer(3)}
+                    {videoPlayer(4)}
+                    {getShopItem(1)}
+                    {getShopItem(2)}
                 </div>
             </main>
             <Footer />
