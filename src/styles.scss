@@ -1,8 +1,13 @@
+//Colors
+$base-color: #04213C;
+$base-color-faded: rgba(4,33,60,0.66);
+$bg-color: #fff;
+
 // General Styles
 body{
     font-family: 'Helvetica Neue', sans-serif;
-    background-color: #04213c;
-    color: #fff;
+    background-color: $bg-color;
+    color: $base-color;
 }
 img{
     width: 100%;
@@ -29,8 +34,8 @@ img{
     display: flex;
     justify-content: center;
     .btn{
-        color: #fff;
-        border: 2px solid #fff;
+        color: $base-color;
+        border: 2px solid $base-color;
         text-decoration: none;
         padding: 5px 25px;
         margin-right: 25px;
@@ -38,8 +43,8 @@ img{
         width: 130px;
         text-align: center;
         &:hover{
-            color: #043c2d;
-            background-color: #fff;
+            color: $bg-color;
+            background-color: $base-color;
         }
     }
     .btn-share{
@@ -53,8 +58,8 @@ img{
     top: 0;
     bottom: 0;
     width: 50%;
-    background-color: #fff;
-    color: #043c2d;
+    background-color: $bg-color;
+    color: $base-color;
     display: none;
     justify-content: center;
     align-items: center;
@@ -70,8 +75,8 @@ img{
     left: 0;
 }
 .share-link:hover{
-    background-color: #043c2d;
-    color: #fff;
+    background-color: $base-color;
+    color: $bg-color;
 }
 .btn-share:hover .share-link{
     display: flex;
@@ -86,7 +91,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #04213c;
+    background-color: $base-color;
     background-image: url('./imgs/header-bg.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -143,15 +148,15 @@ nav{
             }
         }
         a{
-            color: rgba(255,255,255, 0.66);
+            color: $base-color-faded;
             text-decoration: none;
             transition: all 0.4s;
             &:hover{
-                color: rgba(255,255,255, 1);
+                color: $base-color;
             }
         }
         .active-link{
-            color: rgba(255,255,255,1);
+            color: $base-color;
         }
         .mr-0{
             margin-right: 0;
@@ -283,7 +288,7 @@ main.contact-header{
         font-size: 2.05rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #fff;
+        color: $base-color;
         text-decoration: none;
         @media(max-width:500px){
             font-size: 1.4rem;
@@ -306,11 +311,11 @@ main.contact-header{
             }
         }
         a{
-            color: rgba(255,255,255, 0.66);
+            color: $base-color-faded;
             font-size: 30px;
             transition: all 0.4s;
             &:hover{
-                color: rgba(255,255,255,1);
+                color: $base-color;
             }
         }
     }

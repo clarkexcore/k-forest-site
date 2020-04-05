@@ -51,47 +51,61 @@ const Homepage = () => {
             })
     }
 
-    //JSX Elements
+    ////// JSX Elements \\\\\\
 
-    //Shop JSX
-    const getShopItem = (num) => {
-        return(
-            <Fragment>
-                <ShopTile shop={ShopData[num]} />
-            </Fragment>
-        );
-    }
+    //Music 
+    const MusicItems = MusicData.map((item, index) => {
+        if(index < 5){
+            return(
+                <Fragment>
+                    <MusicTile music={item} />
+                </Fragment>
+            )
+        } else {
+            return null;
+        }
+    })
 
     // Video JSX
-    const videoPlayer = (num) => {
-        return(
-            <Fragment>
-                <div className="video-container" key={videos[num].id.videoId}>
-                    <YouTube
-                        videoId={videos[num].id.videoId}
-                        className="yt-embed"
-                        opts={{
-                            playerVars: {
-                            autoplay: 0
-                            }
-                        }}
-                    />
-                    <div className="btns-container">
-                        <ShareBtns Link={`https://www.youtube.com/watch?v=${videos[num].id.videoId}`} />
-                    </div>
-                </div>
-            </Fragment>
-        )
-    };
+    const videoPlayer = () => (
+        <Fragment>
+            {!videoLoading ? 
+                videos.map(video => {
+                    const link = `https://www.youtube.com/watch?v=${video.id.videoId}`;
+                    return(
+                        <div className="video-container" key={video.id.videoId}>
+                            <YouTube
+                                videoId={video.id.videoId}
+                                className="yt-embed"
+                                opts={{
+                                    playerVars: {
+                                    autoplay: 0
+                                    }
+                                }}
+                            />
+                            <div className="btns-container">
+                                <ShareBtns Link={link} />
+                            </div>
+                        </div>
+                    );
+                })
+            : null }
+        </Fragment>
+    );
 
-    // Music JSX
-    const getMusicItem = (num) => {
-        return (
-            <Fragment>
-                <MusicTile music={MusicData[num]} />
-            </Fragment>
-        );
-    }
+
+    //Shop JSX
+    const ShopItems = ShopData.map((item, index) => {
+        if(index < 3){
+            return(
+                <Fragment>
+                    <ShopTile shop={item} />
+                </Fragment>
+            );
+        } else {
+            return null;
+        }
+    });
 
     return(
         <Fragment>
@@ -100,45 +114,9 @@ const Homepage = () => {
             <Navigation />
             <main>
                 <div className="feed-container">
-                    {MusicData ?
-                        getMusicItem(0)
-                    : null }
-                    {MusicData ?
-                        getMusicItem(1)
-                    : null }
-                    { ShopData ?
-                        getShopItem(0)
-                    : null}
-                    {!videoLoading ? 
-                        videoPlayer(0)
-                    : null }
-                    {!videoLoading ? 
-                        videoPlayer(1)
-                    : null }
-                    {MusicData ?
-                        getMusicItem(2)
-                    : null }
-                    {MusicData ?
-                        getMusicItem(3)
-                    : null }
-                    {!videoLoading ? 
-                        videoPlayer(2)
-                    : null }
-                    {MusicData ?
-                        getMusicItem(4)
-                    : null }
-                    {!videoLoading ? 
-                        videoPlayer(3)
-                    : null }
-                    {!videoLoading ? 
-                        videoPlayer(4)
-                    : null }
-                    { ShopData ?
-                        getShopItem(1)
-                    : null}
-                    { ShopData ?
-                        getShopItem(2)
-                    : null}
+                    {MusicItems}
+                    {videoPlayer()}
+                    {ShopItems}
                 </div>
             </main>
             <Footer />

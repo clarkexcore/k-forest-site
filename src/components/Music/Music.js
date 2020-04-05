@@ -12,7 +12,6 @@ const Music = () => {
 
     // Music JSX
     const musicData = MusicData.map((item, index) => {
-        console.log(item);
         return(
             <Fragment>
                 <div className="music-container" key={item.title}>
