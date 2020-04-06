@@ -13,6 +13,7 @@ const MusicTile = (props) => {
     }
     return(
         <div className="music-container">
+            <h3 className="text-center">{props.music.title}</h3>
             {props.music.back_img ?
                 <div className="double-img-container">
                     <img src={front_img} alt="Shop Item"/>
@@ -23,7 +24,6 @@ const MusicTile = (props) => {
                     <img src={front_img} alt="Shop Item"/>
                 </div>
             }
-            <h3 className="text-center">{props.music.title}</h3>
             <div className="spotify-embed-container">
                 <iframe className="spotify-embed" src={props.music.embed} title={props.music.title} width="800" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>

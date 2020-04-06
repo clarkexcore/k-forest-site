@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect, createRef } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
 const Navigation = () => {
@@ -9,8 +9,32 @@ const Navigation = () => {
         setOpenMobile(!openMobile);
     }
 
+    //Check if Nav Bar is that top
+    const [isSticky, setIsSticky] = useState(false);
+    const ref = createRef();
+
+    // Mount
+    useEffect(() => {
+        const cachedRef = ref.current,
+          observer = new IntersectionObserver(
+            ([e]) => setIsSticky(e.intersectionRatio < 1),
+            {threshold: [1]}
+          )
+
+        observer.observe(cachedRef)
+        
+        // unmount
+        return function(){
+            observer.unobserve(cachedRef)
+        }
+    }, [ref]);
+
+
+
     return(
         <Fragment>
+            <div className={"sticky-menu" + (isSticky ? " is-stuck" : "")} ref={ref}>
+                <div className="gradient-bar"></div>
                 <nav>
                     <div className="container">
                         <ul className="nav-menu">
@@ -36,6 +60,7 @@ const Navigation = () => {
                         </div>
                     </nav>
                 : null}
+            </div>
         </Fragment>
     );
 }

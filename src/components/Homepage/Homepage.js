@@ -110,7 +110,6 @@ const Homepage = () => {
     return(
         <Fragment>
             <HomeHeader />
-            <div className="gradient-bar"></div>
             <Navigation />
             <main>
                 <div className="feed-container">
