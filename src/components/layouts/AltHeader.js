@@ -4,7 +4,6 @@ import Navigation from '../layouts/Navigation';
 
 const AltHeader = () => (
     <Fragment>
-        <div className="gradient-bar"></div>
         <Navigation />
     </Fragment>
 );
