@@ -8,6 +8,7 @@ import Homepage from './components/Homepage/Homepage';
 import Music from './components/Music/Music';
 import Video from './components/Video/Video';
 import Contact from './components/Contact/Contact';
+import Teaser from './components/Teaser/Teaser';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/music" component={Music} />
             <Route exact path="/video" component={Video} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/teaser" component={Teaser} />
         </Router>
     </div>
   );
